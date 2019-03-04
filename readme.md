@@ -66,9 +66,9 @@ This is my attempt at an easily configurable color formatter for Out-Default tha
 
 ## Screenshots
 
-![tuliPS ls listing](assets/ls.png)
+![tuliPS ls listing](assets/ls.PNG)
 
-![tuliPS match listing](assets/sls.png)
+![tuliPS match listing](assets/sls.PNG)
 
 ## Credit
 
