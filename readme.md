@@ -49,24 +49,9 @@ Export-Tulips ~/tulips.xml
 Import-Tulips ~/tulips.xml
 ```
 
-## Background
-
-Microsoft Consoles did not support Virtual Terminal (VT) ANSI escape sequences for color output support.
-Combining ANSI sequences with the PowerShell type formatting (format.ps1xml) allows for very powerful control over formatting.
-Check out [DirColors][dircolors] by Dustin Howett for a fantastic example.
-
-However, I hate ANSI escape sequences and virtual terminal support for it.
-It's ancient.
-It's clunky.
-It's hard to read.
-And it needs an update.
-Why are we still using old hardware codes for hardware that doesn't exist to tell modern software what to do?
-
-This is my attempt at an easily configurable color formatter for Out-Default that doesn't use regex or escape codes.
-
 ## Custom Formatters
 
-Format any<sup>*</sup> object of your choosing. You can set one formatter per object.
+Format any<sup>*</sup> object of your choosing. You can set one formatter per Type.
 
 Keep the following two tips in mind:
 
@@ -92,6 +77,20 @@ Add-TulipsFormatter Int { '{0:P}' -f $_ | Write-Host }
 Add-TulipsFormatter System.Diagnostics.Process { Format-MyProcess $_ }   # Just be sure Format-MyProcess isn't private 
 ```
 
+## Background
+
+Microsoft Consoles did not support Virtual Terminal (VT) ANSI escape sequences for color output support.
+Combining ANSI sequences with the PowerShell type formatting (format.ps1xml) allows for very powerful control over formatting.
+Check out [DirColors][dircolors] by Dustin Howett for a fantastic example.
+
+However, I hate ANSI escape sequences and virtual terminal support for it.
+It's ancient.
+It's clunky.
+It's hard to read.
+And it needs an update.
+Why are we still using old hardware codes for hardware that doesn't exist to tell modern software what to do?
+
+This is my attempt at an easily configurable color formatter for Out-Default that doesn't use regex or escape codes.
 
 ## Screenshots
 
