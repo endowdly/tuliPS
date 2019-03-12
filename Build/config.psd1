@@ -14,7 +14,7 @@
     Imports = 'Internal', 'Public' 
 
     # Copies these files to the destination folder 
-    Dependencies = '../OutDefaultWrapper.ps1', '../tulips.config.psd1'
+    Dependencies = '../tulips.config.psd1'
 
     # Use FirstBuild to use this version
     BuildVersion = '1.0.0'

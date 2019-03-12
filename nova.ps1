@@ -104,7 +104,7 @@ end {
         $Result | Format-Table -AutoSize 
     }
 
-    Write-Host 'NOVA DONE' -ForegroundColor Green
+    Write-Host "$Task DONE" -ForegroundColor Green
 
-    # exit 0
+    exit 0
 }

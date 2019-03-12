@@ -78,7 +78,6 @@ function Read-Prompt {
 }
 
 
-# Converts a hashtable into a choicedescription array
 # hashtable -> ChoiceDescription[]
 function Get-Choice ($x) {
     $tokens = @{
@@ -116,7 +115,7 @@ filter Set-Key ($s) {
 
 # Add a Token property to a collection on a token obj
 # Tries not to allow repeat tokens
-# obj -> obj
+# obj -> unit
 filter Add-Token {
     $_.Token = $_.Key.Substring($_.TokenIndex, 1)
 

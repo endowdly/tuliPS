@@ -47,10 +47,15 @@ foreach ($folder in 'Public', 'Internal', 'Classes') {
  
 #>
 
-$WrapperPath = Join-Path $PSScriptRoot OutDefaultWrapper.ps1
 $ConfigPath = Join-Path $PSScriptRoot tuliPS.config.psd1
 $Tulips = Import-PowerShellDataFile $ConfigPath 
 $OutDefault = Get-Command Out-Default -CommandType Cmdlet
+$TypeTracker = @{
+    'System.IO.FileSystemInfo'                = { Format-FileInfo $_ }
+    'Microsoft.PowerShell.Commands.MatchInfo' = { Format-MatchInfo $_ } 
+}
+$TypeTrackerCheckpoint = $TypeTracker.Clone()
+$NewProcess = Get-ProcessBlock
 
 
 <#
@@ -63,7 +68,7 @@ $OutDefault = Get-Command Out-Default -CommandType Cmdlet
  
 #>
 
-& $WrapperPath
+Invoke-Wrapper
 
 $MyInvocation.MyCommand.ScriptBlock.Module.OnRemove = {
     Reset-OutDefault
